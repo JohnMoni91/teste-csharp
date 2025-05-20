@@ -1,38 +1,31 @@
 ﻿using System;
 using System.Globalization;
-using System.Security.Cryptography.X509Certificates;
+using System.Numerics;
+using System.Runtime.Intrinsics.X86;
 
 namespace Course { 
     class Program
     {
         static void Main(string[] args)
         {
-            // Entre com o seu nome completo 
-            Console.WriteLine("Entre com seu nome completo: ");
-            string nome = Console.ReadLine();
+            // Preciso de um programa para ler as medidas da base e altura
+            // Logo em seguida, mostrar o valor da área, perímetro e diagonal deste retângulo. Com 4 casas decimais.
+            double medBase = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture); // medida da base
+            // Colocar um valor da base
+            double medAltura = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture); // medida da altura
+            // colocar um valor da altura
+            double area = medBase * medAltura; // área do retângulo
+            // Para descobrir a área do retângulo, multiplica-se a base pela altura
+            double perimetro = 2 * (medBase + medAltura); // perímetro do retângulo
+            // Para descobrir o perímetro do retângulo, soma-se a base com a altura e multiplica-se por 2
+            double diagonal = Math.Sqrt(Math.Pow(medBase, 2) + Math.Pow(medAltura, 2)); // diagonal do retângulo
+            // Para descobrir a diagonal do retângulo, usa-se o Teorema de Pitágoras: a² + b² = c², onde c é a hipotenusa (diagonal)
 
-            // Quantos quartos tem na sua casa?
-            Console.WriteLine("Quantos quartos tem na sua casa? ");
-            int qrtos = int.Parse(Console.ReadLine());
+            // Exibir os resultados com 4 casas decimais
+            Console.WriteLine("Área: " + area.ToString("F4", CultureInfo.InvariantCulture)); // Exibir a área do retângulo com 4 casas decimais
+            Console.WriteLine("Perímetro: " + perimetro.ToString("F4", CultureInfo.InvariantCulture)); // Exibir o perímetro do retângulo com 4 casas decimais
+            Console.WriteLine("Diagonal: " + diagonal.ToString("F4", CultureInfo.InvariantCulture)); // Exibir a diagonal do retângulo com 4 casas decimais
 
-            // Entre com o preço de um produto
-            Console.WriteLine("Entre com o preço de um produto: ");
-            double preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-
-            // Entre seu último nome, idade e altura (mesma linha):
-            Console.WriteLine("Entre seu último nome, idade e altura: ");
-            string[] vet = Console.ReadLine().Split(' ');
-            string ultimoNome = vet[0];
-            int idade = int.Parse(vet[1]);
-            double altura = double.Parse(vet[2], CultureInfo.InvariantCulture);
-
-            // Mostrar resultado   
-            Console.WriteLine(nome);
-            Console.WriteLine(qrtos);
-            Console.WriteLine(preco.ToString("F2", CultureInfo.InvariantCulture));
-            Console.WriteLine(ultimoNome);
-            Console.WriteLine(idade);
-            Console.WriteLine(altura.ToString("F2", CultureInfo.InvariantCulture));
         }
     }
 }
