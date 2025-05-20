@@ -26,6 +26,18 @@ namespace Course {
             Console.WriteLine("Perímetro: " + perimetro.ToString("F4", CultureInfo.InvariantCulture)); // Exibir o perímetro do retângulo com 4 casas decimais
             Console.WriteLine("Diagonal: " + diagonal.ToString("F4", CultureInfo.InvariantCulture)); // Exibir a diagonal do retângulo com 4 casas decimais
 
+            // Math.sqrt: Retorna a raiz quadrada de um número
+            // Math.pow: Retorna o valor de um número elevado à potência de outro número
+            // Math.PI: Retorna o valor de pi (3.14159...)
+            // Math.Round: Arredonda um número para o inteiro mais próximo
+            // Math.Abs: Retorna o valor absoluto de um número
+            // Math.Max: Retorna o maior valor entre dois números
+            // Math.Min: Retorna o menor valor entre dois números
+            // Math.Sin: Retorna o seno de um ângulo em radianos
+            // Math.Cos: Retorna o cosseno de um ângulo em radianos
+            // Math.Tan: Retorna a tangente de um ângulo em radianos
+            // Math.Log: Retorna o logaritmo natural de um número
+            // Math.Exp: Retorna o valor de e elevado à potência de um número
         }
     }
 }
