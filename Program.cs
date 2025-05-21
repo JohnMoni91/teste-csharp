@@ -2,41 +2,25 @@
 using System.Globalization;
 
 
-namespace Course{
-    class Program{
+namespace Course
+{
+    class Program
+    {
         static void Main(string[] args)
         {
-            // Preciso fazer um programa q leia um numero inderterminado de dados
-            // contendo cada um, a idade de um individuo
-            // o ultimo dado, q n entrara nos calculos, cotem um valor de idade negativa
-            // calcular e imprimir a media de idade deste grupo
-            // se houver idade negativa, o programa deve parar de ler os dados e imprimir q é impossivel calcular
+            double C, F;
+            char continuar = 's';
 
-            double idade, media;
-            int cont = 0;
-
-            Console.WriteLine("Digite a idade dos individuos: ");
-            idade = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-
-            double soma = 0.0;
-
-            while (idade >= 0)
+            do
             {
-                soma += idade;
-                cont += 1;
-                Console.WriteLine("Digite a idade dos individuos: ");
-                idade = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            }
-            if (cont == 0)
-            {
-                Console.WriteLine("Impossivel calcular");
-            }
-            else
-            {
-                media = soma / cont;
-                Console.WriteLine("A media de idade é: " + media.ToString("F2", CultureInfo.InvariantCulture));
-                Console.ReadLine();
-            }
+                Console.Write("Digite a temperatura em celsius: ");
+                C = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                F = 9.0 * C / 5.0 + 32.0;
+                Console.WriteLine("Equivalente em Fahrenheit: " + F.ToString("F1", CultureInfo.InvariantCulture));
+                Console.Write("Deseja continuar? ");
+                continuar = char.Parse(Console.ReadLine());
+            } while (continuar == 's');
+
         }
     }
 }
