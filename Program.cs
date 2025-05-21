@@ -1,45 +1,29 @@
 ﻿using System;
 using System.Globalization;
 
-namespace Course
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            int x = int.Parse(Console.ReadLine()!);
-            string dia;
+namespace Course{
+    class Program{
+        static void Main(string[] args){
+            int x, y;
 
-            switch (x)
+            string[] vet = Console.ReadLine().Split(' ');
+            x = int.Parse(vet[0]);
+            y = int.Parse(vet[1]);
+
+            while (x != y)
             {
-                case 1:
-                    dia = "Domingo";
-                    break;
-                case 2:
-                    dia = "Segunda-feira";
-                    break;
-                case 3:
-                    dia = "Terça-feira";
-                    break;
-                case 4:
-                    dia = "Quarta-feira";
-                    break;
-                case 5:
-                    dia = "Quinta-feira";
-                    break;
-                case 6:
-                    dia = "Sexta-feira";
-                    break;
-                case 7:
-                    dia = "Sábado";
-                    break;
-                default:
-                    dia = "Valor inválido";
-                    break;
+                if (x < y)
+                {
+                    Console.WriteLine("Crescente");
+                }
+                else
+                {
+                    Console.WriteLine("Decrescente");
+                }
+                vet = Console.ReadLine().Split(' ');
+                x = int.Parse(vet[0]);
+                y = int.Parse(vet[1]);
             }
-
-            Console.WriteLine("Dia da semana: " + dia);
-            Console.ReadLine();
         }
     }
 }
