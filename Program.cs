@@ -1,40 +1,38 @@
 ﻿using System;
 using System.Globalization;
 
-namespace Course{
-    class Program{
+namespace Course
+{
+    class Program
+    {
         static void Main(string[] args)
         {
-            // Faça um programa que leia N números inteiros e armazene-os em um vetor. 
-            // Em seguida, mostre na tela todos o números negativos lidos
 
+            // Sempre deve fazer o for para cada situação
+            // um for para somar, um pra imprimir, outro pra media e assim vai
 
-            // primeiro tem q declarar a entrada e o vetor
-            int N;
-            int[] vet;
+            int N; // Número de elementos do vetor
+            double soma, media; // Variáveis para soma e média
+            double[] vet; // Vetor de números reais
 
-            // depois tem que ler o valor de N e inicializar o vetor com o tamanho N
-            N = int.Parse(Console.ReadLine());
-            vet = new int[N];
+            N = int.Parse(Console.ReadLine(), CultureInfo.InvariantCulture); // Lê o número de elementos do vetor
+            vet = new double[N]; // Inicializa o vetor com o tamanho N
+            soma = 0.0; // Inicializa a soma como 0.0
 
-            string[] valores = Console.ReadLine().Split(' ');// lê os valores da linha e separa por espaço
-            for (int i = 0; i < N; i++)
+            string[] valores = Console.ReadLine().Split(' '); // Lê os valores do vetor como uma string e divide em partes
+
+            for (int i = 0; i < N; i++) // Loop para preencher o vetor
             {
-                // converte os valores lidos para inteiro e armazena no vetor
-                vet[i] = int.Parse(valores[i]);
+                vet[i] = double.Parse(valores[i], CultureInfo.InvariantCulture); // Converte cada parte da string para double
+                Console.Write(vet[i].ToString("F1", CultureInfo.InvariantCulture) + " "); // Imprime o valor formatado com uma casa decimal
+                soma += vet[i];// Adiciona o valor ao total da soma
             }
 
-            for (int i = 0; i < N; i++)
-            {
-                // verifica se o valor é negativo e imprime na tela
-                if (vet[i] < 0)
-                {
-                    Console.WriteLine(vet[i]);
-                }
-            }
-
-
-            Console.ReadLine();
+            Console.WriteLine(); // Pula linha
+            media = soma / N; // Calcula a média dos valores
+            // Imprime a soma e a média formatadas com uma casa decimal
+            Console.WriteLine("Soma: " + soma.ToString("F1", CultureInfo.InvariantCulture));
+            Console.WriteLine("Média: " + media.ToString("F1", CultureInfo.InvariantCulture));
         }
     }
 }
