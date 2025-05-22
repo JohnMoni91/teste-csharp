@@ -1,25 +1,29 @@
 ﻿using System;
 using System.Globalization;
 
-
-namespace Course
-{
-    class Program
-    {
+namespace Course{
+    class Program{
         static void Main(string[] args)
         {
-            double C, F;
-            char continuar = 's';
+            // Fazer um programa para ler um número inteiro positivo N
+            // depois ler N números inteiros e armazená-los em um vetor.
 
-            do
+            int N;
+            double[] vet; // Declaração do vetor de double
+
+            N = int.Parse(Console.ReadLine());
+            vet = new double[N]; // Cria o vetor com N posições
+
+            for (int i = 0; i < N; i++) // i sempre inicia em 0 e vai até N-1
             {
-                Console.Write("Digite a temperatura em celsius: ");
-                C = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-                F = 9.0 * C / 5.0 + 32.0;
-                Console.WriteLine("Equivalente em Fahrenheit: " + F.ToString("F1", CultureInfo.InvariantCulture));
-                Console.Write("Deseja continuar? ");
-                continuar = char.Parse(Console.ReadLine());
-            } while (continuar == 's');
+                vet[i] = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture); // Lê os números e armazena no vetor
+            }
+
+            for (int i = 0; i < N; i++) // i sempre inicia em 0 e vai até N-1
+            {
+                Console.WriteLine(vet[i].ToString("F1", CultureInfo.InvariantCulture)); // Imprime os números do vetor com 2 casas decimais
+            }
+            Console.ReadLine();
 
         }
     }
