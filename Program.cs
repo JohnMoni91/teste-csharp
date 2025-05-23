@@ -7,32 +7,51 @@ namespace Course
     {
         static void Main(string[] args)
         {
+            // Fazer um programa para ler
+            // dois numeros inteiros M e N
+            // Em seguida, ler uma matriz de M linhas e N colunas contendo números inteiros.
+            // gerar um vetor de modo que cada elemento do vetor seja a soma dos elementos da linha correspondente da matriz.
 
-            // Sempre deve fazer o for para cada situação
-            // um for para somar, um pra imprimir, outro pra media e assim vai
+            // Mostrar o vetor gerado.
+            int m, n;
+            int[,] soma;
 
-            int N; // Número de elementos do vetor
-            double soma, media; // Variáveis para soma e média
-            double[] vet; // Vetor de números reais
+            // Ler os valores de M e N
+            string[] vet = Console.ReadLine().Split(' '); // Ler os valores de M e N
+            m = int.Parse(vet[0]);
+            n = int.Parse(vet[1]);
+            soma = new int[m, n]; // Criar a matriz de M linhas e N colunas
 
-            N = int.Parse(Console.ReadLine(), CultureInfo.InvariantCulture); // Lê o número de elementos do vetor
-            vet = new double[N]; // Inicializa o vetor com o tamanho N
-            soma = 0.0; // Inicializa a soma como 0.0
-
-            string[] valores = Console.ReadLine().Split(' '); // Lê os valores do vetor como uma string e divide em partes
-
-            for (int i = 0; i < N; i++) // Loop para preencher o vetor
+            for (int i = 0; i < m; i++) // Ler os valores da matriz
             {
-                vet[i] = double.Parse(valores[i], CultureInfo.InvariantCulture); // Converte cada parte da string para double
-                Console.Write(vet[i].ToString("F1", CultureInfo.InvariantCulture) + " "); // Imprime o valor formatado com uma casa decimal
-                soma += vet[i];// Adiciona o valor ao total da soma
+                // Ler os valores da linha i da matriz
+                // e armazenar na matriz soma
+                // Exemplo: 1 2 3 4 5
+                // soma[0,0] = 1, soma[0,1] = 2, soma[0,2] = 3, soma[0,3] = 4, soma[0,4] = 5
+                {
+                    vet = Console.ReadLine().Split(' ');
+                for (int j = 0; j < n; j++)
+                {
+                    soma[i, j] = int.Parse(vet[j]);
+                }
             }
 
-            Console.WriteLine(); // Pula linha
-            media = soma / N; // Calcula a média dos valores
-            // Imprime a soma e a média formatadas com uma casa decimal
-            Console.WriteLine("Soma: " + soma.ToString("F1", CultureInfo.InvariantCulture));
-            Console.WriteLine("Média: " + media.ToString("F1", CultureInfo.InvariantCulture));
+            int[] somaLinhas = new int[m]; // Criar o vetor de soma das linhas
+
+                for (int i = 0; i < m; i++) 
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    somaLinhas[i] += soma[i, j];
+                }
+            }
+
+            for (int i = 0; i < m; i++) // Mostrar o vetor de soma das linhas
+                {
+                Console.WriteLine(somaLinhas[i]);
+            }
+
+            Console.ReadLine();
         }
     }
 }
