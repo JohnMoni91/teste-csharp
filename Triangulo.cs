@@ -1,4 +1,6 @@
-﻿namespace PrimeiroProjeto
+using System;
+
+namespace PrimeiroProjeto
 {
     internal class Triangulo
     {
