@@ -1,51 +1,44 @@
-﻿using PrimeiroProjeto;
-using System;
+﻿using System;
+using System.Globalization;
 
-namespace Course
+namespace PrimeiroProjeto
 {
-    class Program
+    internal class Program
     {
+        // Fazer um programa para ler os dados de um produto em estoque (nome, preço e quantidade no estoque). Em seguida, mostrar o valor total do estoque (preço * quantidade) e permitir que o usuário informe quantos produtos serão adicionados ou removidos do estoque. Ao final, mostrar novamente o valor total do estoque.
+
+        // puxar class do ProdutoEstoque.cs
+
         static void Main(string[] args)
         {
+            // Declarando a outra classe
+            ProdutoEstoque produto = new ProdutoEstoque();
 
-            // trim é usado para remover espaços em branco no início e no final de uma string
-            // ?? é usado para garantir que o valor lido não seja nulo, caso seja, será substituído por uma string vazia
+            // Lendo os dados do produto
+            Console.Write("Digite o nome do produto: ");
+            produto.nome = Console.ReadLine() ?? "";
 
-            // Cadastro
-            Cadastro cadastro = new Cadastro();
+            //  Preço
+            Console.Write("Digite o preço do produto: ");
+            produto.preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-            // cadastro da primeira pessoa
-            cadastro.nome = (Console.ReadLine() ?? "").Trim();
-            cadastro.idade = int.Parse(Console.ReadLine().Trim());
+            // Quantidade no estoque
+            Console.Write("Digite a quantidade no estoque: ");
+            produto.quantidade = int.Parse(Console.ReadLine() ?? "0");
+            Console.WriteLine($"Valor total do estoque: R$ {produto.ValorTotalEstoque():F2}");
 
-            // cadastro da segunda pessoa
-            Cadastro cadastro2 = new Cadastro();
+            // Adicionar e remover produtos do estoque
+            Console.Write("Digite a quantidade de produtos a serem adicionados ao estoque: ");
+            int quantidadeAdicionar = int.Parse(Console.ReadLine() ?? "0");
+            produto.AdicionarProdutos(quantidadeAdicionar);
+            Console.WriteLine($"Valor total do estoque após adição: R$ {produto.ValorTotalEstoque():F2}");
+            Console.Write("Digite a quantidade de produtos a serem removidos do estoque: ");
+            int quantidadeRemover = int.Parse(Console.ReadLine() ?? "0");
+            produto.RemoverProdutos(quantidadeRemover);
+            Console.WriteLine($"Valor total do estoque após remoção: R$ {produto.ValorTotalEstoque():F2}");
 
-            // cadastro da segunda pessoa
-            cadastro2.nome = (Console.ReadLine() ?? "").Trim();
-            cadastro2.idade = int.Parse(Console.ReadLine().Trim());
-
-            if (cadastro.idade < 0 && cadastro2.idade <0)
-            {
-                Console.WriteLine("Idade inválida");
-            }
-            else if (cadastro.nome == "" && cadastro2.nome == "")
-            {
-                Console.WriteLine("Nome inválido");
-            }
-            else
-            {
-                Console.WriteLine("Cadastro realizado com sucesso!");
-
-                // Exibindo os dados cadastrados da primeira pessoa
-                Console.WriteLine($"Nome da primeira pessoa: {cadastro.nome}");
-                Console.WriteLine($"Idade da primeira pessoa: {cadastro.idade}");
-
-                // Exibindo os dados cadastrados da segunda pessoa
-                Console.WriteLine($"Nome da segunda pessoa: {cadastro2.nome}");
-                Console.WriteLine($"Nome da segunda pessoa: {cadastro2.idade}");
-
-            }
+            Console.WriteLine(produto);
+            Console.ReadLine();
         }
     }
 }
