@@ -1,6 +1,5 @@
-﻿using System;
-using System.Formats.Asn1;
-using System.Globalization;
+﻿using PrimeiroProjeto;
+using System;
 
 namespace Course
 {
@@ -8,40 +7,43 @@ namespace Course
     {
         static void Main(string[] args)
         {
-            // Ler os lados dos triangulos X e Y
-            Console.WriteLine("Digite os lados do triangulo X: ");
-            double xA = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            double xB = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            double xC = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
+            // trim é usado para remover espaços em branco no início e no final de uma string
+            // ?? é usado para garantir que o valor lido não seja nulo, caso seja, será substituído por uma string vazia
 
-            Console.WriteLine("Digite os lados do triangulo Y: ");
-            double yA = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            double yB = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            double yC = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            // Cadastro
+            Cadastro cadastro = new Cadastro();
 
-            //formula de heron para calcular a area de um triangulo
-            // valor de x
-            double p = (xA + xB + xC) / 2.0;
-            double areaX = Math.Sqrt(p * (p - xA) * (p - xB) * (p - xC));
+            // cadastro da primeira pessoa
+            cadastro.nome = (Console.ReadLine() ?? "").Trim();
+            cadastro.idade = int.Parse(Console.ReadLine().Trim());
 
-            // valor de y
-            double q = (yA + yB + yC) / 2.0;
-            double areaY = Math.Sqrt(q * (q - yA) * (q - yB) * (q - yC));
+            // cadastro da segunda pessoa
+            Cadastro cadastro2 = new Cadastro();
 
+            // cadastro da segunda pessoa
+            cadastro2.nome = (Console.ReadLine() ?? "").Trim();
+            cadastro2.idade = int.Parse(Console.ReadLine().Trim());
 
-            // Exibir as areas
-            Console.WriteLine($"Area X = {areaX.ToString("F4", CultureInfo.InvariantCulture)}");
-            Console.WriteLine($"Area Y = {areaY.ToString("F4", CultureInfo.InvariantCulture)}");
-
-            // Verificar qual area é maior
-            if (areaX > areaY)
+            if (cadastro.idade < 0 && cadastro2.idade <0)
             {
-                Console.WriteLine("Maior area: X");
+                Console.WriteLine("Idade inválida");
+            }
+            else if (cadastro.nome == "" && cadastro2.nome == "")
+            {
+                Console.WriteLine("Nome inválido");
             }
             else
             {
-                Console.WriteLine("Maior area: Y");
+                Console.WriteLine("Cadastro realizado com sucesso!");
+
+                // Exibindo os dados cadastrados da primeira pessoa
+                Console.WriteLine($"Nome da primeira pessoa: {cadastro.nome}");
+                Console.WriteLine($"Idade da primeira pessoa: {cadastro.idade}");
+
+                // Exibindo os dados cadastrados da segunda pessoa
+                Console.WriteLine($"Nome da segunda pessoa: {cadastro2.nome}");
+                Console.WriteLine($"Nome da segunda pessoa: {cadastro2.idade}");
 
             }
         }
