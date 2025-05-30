@@ -10,9 +10,9 @@ namespace Course
         {
             Produto p = new Produto("TV", 500.00, 10);
 
-            p.SetNome("TV 4K");
+            p.Nome = "T";
 
-            Console.WriteLine(p.GetNome());
+            Console.WriteLine(p.Nome);
             Console.WriteLine(p.GetPreco().ToString("F2", CultureInfo.InvariantCulture));
             Console.WriteLine(p.GetQuantidade());
         }

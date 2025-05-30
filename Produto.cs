@@ -23,33 +23,64 @@ namespace Produtos
             _quantidade = _quantidade;
         }
 
-        public string GetNome()
-        {
-            return _nome;
-        }
 
-        public void SetNome(string nome)
+        // propriedade Nome com validação
+        public string Nome // propriedade Nome com validação
         {
-            if (nome != null && nome.Length > 1)
+            get // Pega o valor do campo _nome
             {
-                _nome = nome;
+                return _nome; // Retorna o nome do produto
             }
-            else
+            set // Define o valor do campo _nome
             {
-                throw new ArgumentException("Nome inválido. Deve ter mais de um caractere.");
+                if (value != null && value.Length > 1) // Verifica se o valor não é nulo e tem mais de um caractere
+                {
+                    _nome = value; // Se a validação passar, define o valor do campo _nome
+                }
+                else // Se a validação falhar
+                {
+                    throw new ArgumentException("Nome inválido. Deve ter mais de um caractere."); // Lança uma exceção com uma mensagem de erro
+                }
+            }
+        }
+
+        public double Preco
+            {
+                get
+                {
+                    return _preco;
+                }
+                set
+                {
+                    if (value >= 0)
+                    {
+                        _preco = value;
+                    }
+                    else
+                    {
+                        throw new ArgumentException("Preço inválido. Deve ser maior ou igual a zero.");
+                    }
+                }
             }
 
-        }
-
-        public double GetPreco()
-        {
-            return _preco;
-        }
-
-        public int GetQuantidade()
-        {
-            return _quantidade;
-        }
+        public int Quantidade
+            {
+                get
+                {
+                    return _quantidade;
+                }
+                set
+                {
+                    if (value >= 0)
+                    {
+                        _quantidade = value;
+                    }
+                    else
+                    {
+                        throw new ArgumentException("Quantidade inválida. Deve ser maior ou igual a zero.");
+                    }
+                }
+            }
 
     }
 }
