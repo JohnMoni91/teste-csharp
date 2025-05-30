@@ -8,13 +8,23 @@ namespace Course
     {
         static void Main(string[] args)
         {
-            Produto p = new Produto("TV", 500.00, 10);
+            try
+            {
+                // Instancia o produto com nome, preço e quantidade
+                Produto p = new Produto("TV", 500.00, 10);
 
-            p.Nome = "T";
+                // Testa a alteração do nome
+                p.Nome = "TV Nova";
 
-            Console.WriteLine(p.Nome);
-            Console.WriteLine(p.GetPreco().ToString("F2", CultureInfo.InvariantCulture));
-            Console.WriteLine(p.GetQuantidade());
+                // Exibe os dados
+                Console.WriteLine(p.Nome);
+                Console.WriteLine(p.Preco.ToString("F2", CultureInfo.InvariantCulture));
+                Console.WriteLine(p.Quantidade);
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine("Erro: " + e.Message);
+            }
         }
     }
 }

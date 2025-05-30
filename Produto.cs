@@ -4,83 +4,104 @@ namespace Produtos
 {
     internal class Produto
     {
+        // ================================
+        // 1. Atributos privados
+        // ================================
 
-        // Get é um método que retorna o valor de um campo ou propriedade.
-        // Set é um método que define o valor de um campo ou propriedade.
+        // Campo privado para armazenar o nome (usado para validação personalizada)
         private string _nome;
+
+        // Campos privados usados pelas propriedades com validação
         private double _preco;
         private int _quantidade;
 
+        // ================================
+        // 2. Propriedades autoimplementadas
+        // ================================
+        // (Neste caso, não temos nenhuma sem lógica interna, mas poderia ser por exemplo:
+        // public string Categoria { get; set; }
+        // )
+
+        // ================================
+        // 3. Construtores
+        // ================================
+
+        // Construtor padrão (sem parâmetros)
         public Produto()
         {
-
         }
 
-        public Produto(string nome, double preco)
+        // Construtor com parâmetros (sobrecarga)
+        public Produto(string nome, double preco, int quantidade)
         {
-            _nome = nome;
-            _preco = preco;
-            _quantidade = _quantidade;
+            Nome = nome;             // Usa o set de 'Nome', que já tem validação
+            Preco = preco;           // Usa o set de 'Preco', com validação
+            Quantidade = quantidade; // Usa o set de 'Quantidade', com validação
         }
 
+        // ================================
+        // 4. Propriedades customizadas
+        // ================================
 
-        // propriedade Nome com validação
-        public string Nome // propriedade Nome com validação
+        // Propriedade personalizada com validação no set (usa o campo privado _nome)
+        public string Nome
         {
-            get // Pega o valor do campo _nome
+            get => _nome;
+            set
             {
-                return _nome; // Retorna o nome do produto
-            }
-            set // Define o valor do campo _nome
-            {
-                if (value != null && value.Length > 1) // Verifica se o valor não é nulo e tem mais de um caractere
+                if (!string.IsNullOrWhiteSpace(value) && value.Length > 1)
                 {
-                    _nome = value; // Se a validação passar, define o valor do campo _nome
+                    _nome = value;
                 }
-                else // Se a validação falhar
+                else
                 {
-                    throw new ArgumentException("Nome inválido. Deve ter mais de um caractere."); // Lança uma exceção com uma mensagem de erro
+                    throw new ArgumentException("Nome inválido. Deve ter mais de um caractere.");
                 }
             }
         }
 
+        // Propriedade personalizada com validação no set (usa o campo privado _preco)
         public double Preco
+        {
+            get => _preco;
+            set
             {
-                get
+                if (value >= 0)
                 {
-                    return _preco;
+                    _preco = value;
                 }
-                set
+                else
                 {
-                    if (value >= 0)
-                    {
-                        _preco = value;
-                    }
-                    else
-                    {
-                        throw new ArgumentException("Preço inválido. Deve ser maior ou igual a zero.");
-                    }
+                    throw new ArgumentException("Preço inválido. Deve ser maior ou igual a zero.");
                 }
             }
+        }
 
+        // Propriedade personalizada com validação no set (usa o campo privado _quantidade)
         public int Quantidade
+        {
+            get => _quantidade;
+            set
             {
-                get
+                if (value >= 0)
                 {
-                    return _quantidade;
+                    _quantidade = value;
                 }
-                set
+                else
                 {
-                    if (value >= 0)
-                    {
-                        _quantidade = value;
-                    }
-                    else
-                    {
-                        throw new ArgumentException("Quantidade inválida. Deve ser maior ou igual a zero.");
-                    }
+                    throw new ArgumentException("Quantidade inválida. Deve ser maior ou igual a zero.");
                 }
             }
+        }
+
+        // ================================
+        // 5. Outros métodos da classe
+        // ================================
+        // (Aqui você pode adicionar, por exemplo, métodos como:
+        // - CalcularValorTotalEmEstoque()
+        // - ToString()
+        // etc.
+        // )
 
     }
 }
