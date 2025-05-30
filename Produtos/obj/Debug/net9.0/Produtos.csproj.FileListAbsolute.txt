@@ -1,0 +1,14 @@
+S:\problemas\Produtos\bin\Debug\net9.0\Produtos.exe
+S:\problemas\Produtos\bin\Debug\net9.0\Produtos.deps.json
+S:\problemas\Produtos\bin\Debug\net9.0\Produtos.runtimeconfig.json
+S:\problemas\Produtos\bin\Debug\net9.0\Produtos.dll
+S:\problemas\Produtos\bin\Debug\net9.0\Produtos.pdb
+S:\problemas\Produtos\obj\Debug\net9.0\Produtos.GeneratedMSBuildEditorConfig.editorconfig
+S:\problemas\Produtos\obj\Debug\net9.0\Produtos.AssemblyInfoInputs.cache
+S:\problemas\Produtos\obj\Debug\net9.0\Produtos.AssemblyInfo.cs
+S:\problemas\Produtos\obj\Debug\net9.0\Produtos.csproj.CoreCompileInputs.cache
+S:\problemas\Produtos\obj\Debug\net9.0\Produtos.dll
+S:\problemas\Produtos\obj\Debug\net9.0\refint\Produtos.dll
+S:\problemas\Produtos\obj\Debug\net9.0\Produtos.pdb
+S:\problemas\Produtos\obj\Debug\net9.0\Produtos.genruntimeconfig.cache
+S:\problemas\Produtos\obj\Debug\net9.0\ref\Produtos.dll
