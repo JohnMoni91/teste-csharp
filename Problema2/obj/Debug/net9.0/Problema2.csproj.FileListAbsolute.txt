@@ -1,0 +1,14 @@
+S:\problemas\Problema2\bin\Debug\net9.0\Problema2.exe
+S:\problemas\Problema2\bin\Debug\net9.0\Problema2.deps.json
+S:\problemas\Problema2\bin\Debug\net9.0\Problema2.runtimeconfig.json
+S:\problemas\Problema2\bin\Debug\net9.0\Problema2.dll
+S:\problemas\Problema2\bin\Debug\net9.0\Problema2.pdb
+S:\problemas\Problema2\obj\Debug\net9.0\Problema2.GeneratedMSBuildEditorConfig.editorconfig
+S:\problemas\Problema2\obj\Debug\net9.0\Problema2.AssemblyInfoInputs.cache
+S:\problemas\Problema2\obj\Debug\net9.0\Problema2.AssemblyInfo.cs
+S:\problemas\Problema2\obj\Debug\net9.0\Problema2.csproj.CoreCompileInputs.cache
+S:\problemas\Problema2\obj\Debug\net9.0\Problema2.dll
+S:\problemas\Problema2\obj\Debug\net9.0\refint\Problema2.dll
+S:\problemas\Problema2\obj\Debug\net9.0\Problema2.pdb
+S:\problemas\Problema2\obj\Debug\net9.0\Problema2.genruntimeconfig.cache
+S:\problemas\Problema2\obj\Debug\net9.0\ref\Problema2.dll
